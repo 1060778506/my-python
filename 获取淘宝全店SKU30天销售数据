@@ -27,18 +27,18 @@ while nrows>k:
 	pattern = re.compile(r'[0-9]+')#正则
 	zes = str(pattern.findall(cell_b))#正则匹配出ID
 	datas = zes.replace('[\'', '').replace('\']', '')#替换不用的等于号
-	begin = str(datetime.date(2018,11,19))#开始时间
-	end = str(datetime.date(2018,12,18))#结束时间
+	begin = str(datetime.date(2019,1,29))#开始时间这里填写月单位
+	end = str(datetime.date(2019,2,27))#结束时间
 	endin = begin + " " + "——" + " " + end
 	data = xlrd.open_workbook('淘宝链接.xlsx')#打开
 	table = data.sheets()[0]#打开
 	url = 'https://sycm.taobao.com/cc/item/sale/overview.json?dateType=recent30&dateRange='+begin+'%7C'+end+'&dateType=day&device=0&itemId='+datas#链接组合month&是月；week&是周；recent30&是30天；recent7&是7天
-	cookies = dict(cookie2='3c7e34dd6de0e7f14de41f9febd48f81',csg='b9779066')#发送密钥
+	cookies = dict(cookie2='187de4b3724d5e9cf483a86475f17930',csg='7703e16f')#发送密钥
 	null=""#
 	joinspayAmt = eval(requests.post(url,cookies=cookies,).text)#组合发送并且将格式str转为dict
 	joinpayAmt = joinspayAmt['data']['payAmt']['value']#获取当月销售额
 	url = 'https://sycm.taobao.com/cc/item/sale/sku/list.json?dateType=recent30&dateRange='+begin+'%7C'+end+'&dateType=day&pageSize=10&page=1&order=desc&orderBy=cartCnt&device=0&itemId='+datas+'&indexCode=cartCnt%2CpayAmt%2CpayItmCnt%2CpayByrCnt&_=524819609940'#获取SKU
-	cookies = dict(cookie2='3c7e34dd6de0e7f14de41f9febd48f81',csg='b9779066')#发送密钥
+	cookies = dict(cookie2='187de4b3724d5e9cf483a86475f17930',csg='7703e16f')#发送密钥
 	joins = eval(requests.post(url,cookies=cookies,).text)#组合发送并且将格式str转为dict
 	joinss = len(joins)#剩余sku数量
 	join = joins['data']['recordCount']#多少个SKU
@@ -98,7 +98,7 @@ while nrows>k:
 		wb.save('淘宝链接.xlsx')#保存
 
 		url = 'https://sycm.taobao.com/cc/item/sale/sku/list.json?dateType=recent30&dateRange='+begin+'%7C'+end+'&dateType=day&pageSize=10&page=2&order=desc&orderBy=cartCnt&device=0&itemId='+datas+'&indexCode=cartCnt%2CpayAmt%2CpayItmCnt%2CpayByrCnt&_=524819609940'#获取SKU
-		cookies = dict(cookie2='3c7e34dd6de0e7f14de41f9febd48f81',csg='b9779066')#发送密钥
+		cookies = dict(cookie2='187de4b3724d5e9cf483a86475f17930',csg='7703e16f')#发送密钥
 		joins = eval(requests.post(url,cookies=cookies,).text)#组合发送并且将格式str转为dict
 		joinss = len(joins)#剩余sku数量
 		rb = open_workbook('淘宝链接.xlsx')#打开原版文件
@@ -157,7 +157,7 @@ while nrows>k:
 			page0=page0+1
 		wb.save('淘宝链接.xlsx')#保存
 		url = 'https://sycm.taobao.com/cc/item/sale/sku/list.json?dateType=recent30&dateRange='+begin+'%7C'+end+'&dateType=day&pageSize=10&page=2&order=desc&orderBy=cartCnt&device=0&itemId='+datas+'&indexCode=cartCnt%2CpayAmt%2CpayItmCnt%2CpayByrCnt&_=524819609940'#获取SKU
-		cookies = dict(cookie2='3c7e34dd6de0e7f14de41f9febd48f81',csg='b9779066')#发送密钥
+		cookies = dict(cookie2='187de4b3724d5e9cf483a86475f17930',csg='7703e16f')#发送密钥
 		joins = eval(requests.post(url,cookies=cookies,).text)#组合发送并且将格式str转为dict
 		rb = open_workbook('淘宝链接.xlsx')#打开原版文件
 		wb = copy(rb)#复制打开原版文件
@@ -188,7 +188,7 @@ while nrows>k:
 			page0=page0+1
 		wb.save('淘宝链接.xlsx')#保存
 		url = 'https://sycm.taobao.com/cc/item/sale/sku/list.json?dateType=recent30&dateRange='+begin+'%7C'+end+'&dateType=day&pageSize=10&page=3&order=desc&orderBy=cartCnt&device=0&itemId='+datas+'&indexCode=cartCnt%2CpayAmt%2CpayItmCnt%2CpayByrCnt&_=524819609940'#获取SKU
-		cookies = dict(cookie2='3c7e34dd6de0e7f14de41f9febd48f81',csg='b9779066')#发送密钥
+		cookies = dict(cookie2='187de4b3724d5e9cf483a86475f17930',csg='7703e16f')#发送密钥
 		joins = eval(requests.post(url,cookies=cookies,).text)#组合发送并且将格式str转为dict
 		joinss = len(joins)#剩余sku数量
 		rb = open_workbook('淘宝链接.xlsx')#打开原版文件
