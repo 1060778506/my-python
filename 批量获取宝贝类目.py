@@ -339,7 +339,7 @@ while (ii<i):
 	Processed = ze.findall(line)#正则匹配
 	Processeds = " ".join(Processed)#数据类型
 	datas = Processeds.replace('=', '')#替换不用的等于号
-	url = 'https://www.taodaxiang.com/category/index/get'
+	url = 'https://taodaxiang.com/category/index/get'
 	datass = {'ids[]': datas}
 	fo = choice(foo)#获取浏览器信息
 	headers = {'User-Agent': fo,'Content-Type': 'application/x-www-form-urlencoded;',}
