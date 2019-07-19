@@ -32,8 +32,8 @@ for file in dirs:
 	time.sleep(0.6)
 	#获取父窗口句柄
 	FindWindowExz=win32gui.FindWindow("FontViewWClass",None)
-	#获取父标题,后面的是替换掉空格
-	FindWindowExztite=win32gui.GetWindowText(FindWindowExz).replace(' ', '')
+	#获取父标题,后面的是替换掉空格,和换行,容易造成BUG
+	FindWindowExztite=win32gui.GetWindowText(FindWindowExz).replace(' ', '').replace('\n', '')
 	#打印名字
 	print("旧名字:"+file)
 	print("新名字:"+FindWindowExztite)
