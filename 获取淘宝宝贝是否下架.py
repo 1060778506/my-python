@@ -3,15 +3,15 @@ import re
 import os
 import win32api
 import time
-import xlwt
-import xlrd
-from xlutils.copy import copy
-from xlrd import open_workbook
-from openpyxl import load_workbook
 from random import choice
 import sys
 import os 
 
+#新建txt
+open("淘宝ID.txt","a")
+#打开可视化txt
+win32api.ShellExecute(0, 'open', '淘宝ID.txt', '', '', 1)#拼多多
+input("填入数据然后任意键继续")
 #获取行数
 file = open("淘宝ID.txt")#打开txt
 i=0
@@ -347,10 +347,11 @@ while (ii<i):
 			f = open('已经下架的淘宝ID.txt','a')#打开文本
 			f.write(uu+"\n")
 			f.close()#关闭打开的类目文件
-			print("状态:下架剩余"+str(ee)+"\n")
+			print("状态:下架剩余"+str(ee))
 			f.close()
 		else:
-			print("状态:在售剩余"+str(ee)+"\n")
+			print("状态:在售"+"\n")
+			print("剩余未检测"+str(ee)+"\n")
 file.close()
 os.remove("淘宝ID.txt")
 input("运行完成")
